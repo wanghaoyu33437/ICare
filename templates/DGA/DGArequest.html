@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/region.css' %}" >
+</head>
+<body>
+<div class="bjui-pageContent">
+    <div id="regionDiv" style="overflow:hidden;">
+    <div class="region-header" style="overflow:hidden;">
+        <div class="region-header-left">
+            <h3 style="">DGA域名监测 </h3>
+        </div>
+        <div class="region-header-right">
+
+    <span><button   class="btn btn-success" onclick="DGAstart(this)" ><i class="fa fa-star"></i>&nbsp;开始</button></span>
+     <span><button   class="btn btn-refresh" id="refresh" onclick="openMytab(this)"><i class="fa fa-undo"  ></i>&nbsp;刷新</button></span>
+
+    <span><button   class="btn btn-orange"  onclick="DGAstop(this)"><i class="fa fa-stop"></i>&nbsp;停止</button></span>
+            <span><button   class="btn btn-danger" onclick="DGAdel(this)" ><i class="fa fa-trash-o"></i>&nbsp;删除</button></span>
+        </div>
+    </div>
+{#     <div id="layout-01" style=" height:100% ;overflow:auto; " class="bjui-layout"  data-toggle="autoajaxload"#}
+{#                     data-url="/DGAquery" data-loadingmask="false" data-autorefresh="15">#}
+{#         </div>#}
+<br>
+    </div>
+
+    <iframe name="DGAquery" src="/DGAquery" frameborder="0" style="width: 100%;height: 100%"></iframe>
+</div>
+<div class="bjui-pageFooter">
+    <div style="text-align: center ">
+        <ul class="pagination" style="margin: 0px">
+            <li {% if not curuent_Page.has_previous %}class="disabled" {% endif %}>
+                <a href="/DGAquery" target="DGAquery" >«</a>
+            </li>
+        {% if not curuent_Page.previous_page_number %}
+            <li>
+                <!--如果当前页数是第一页，那么点上一页仍然是当前页。 -->
+                <a href="/DGAquery?page={{ curuent_Page.previous_page_number }}" target="DGAquery">上一页</a>
+            </li>
+            {% else %}
+                <li>
+                <!--如果当前页数是第一页，那么点上一页仍然是当前页。 -->
+                <a href="/DGAquery?page=1" target="DGAquery">上一页</a>
+            </li>
+        {% endif %}
+            <!--判断最大页数是否超过X，如果超过X则是X，否则是最大页数。防止分页信息过长 -->
+             {% for page_range in pag_range %}
+                {% if current_Page_num == page_range %}<!--判断遍历的页数是否为当前页，是就添加.avtive 背景色变蓝-->
+                    <li class="active"><a href="/DGAquery?page={{ page_range }}" target="DGAquery">{{ page_range }}</a></li>
+                {% else %}
+                    <li><a href="/DGAquery?page={{ page_range }}" target="DGAquery">{{ page_range }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+                {% if not end %}
+                    <li class="disable">
+                        <a href="/DGAquery?page={{ curuent_Page_num }}" target="DGAquery">下一页</a>
+                    </li>
+                    {% else%}
+                    <li>
+                        <a href="/DGAquery?page={{ current_Page.next_page_number }}" target="DGAquery">下一页</a>
+                    </li>
+                {% endif %}
+            <li {% if not end  %}
+            class="disabled"
+            {% endif %}>
+                <a href="/DGAquery?page={{ maxLen }} " target="DGAquery">»</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

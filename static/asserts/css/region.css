@@ -1,0 +1,106 @@
+.region-header{
+    height: 50px;
+    line-height: 80px;
+}
+.region-header-left{
+
+    height:100%;
+    float: left;
+}
+.region-header-left span{
+    font-size: 20px;;
+    margin-left: 15px;
+    position: relative;
+    top:30%;
+}
+.region-header-right{
+    float: right;
+    height:50px;
+
+}
+.region-header-right span{
+    margin-left: 10px;
+    position: relative;
+    top:30%;
+}
+.region-header-right button{
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+.region-header-right .button_1{
+    color: white;
+    border-color:deepskyblue ;
+    background-color: deepskyblue;
+}
+.region-header-right .button_2{
+    color: orange;
+    background-color:white ;
+    border-color: orange;
+}
+.region-header-right .button_3{
+    color:red;
+    background-color:white ;
+    border-color: red;
+}
+.region-header-right .button_4{
+    color:green;
+    background-color:white ;
+    border-color: green;
+}
+.region-body{
+    height:490px;
+}
+.region-body .table{
+    font-size: large;
+    width: 100%;
+}
+.region-body .table_url{
+    font-size: large;
+}
+.region-body  .table_0{
+    width: 10%;
+    border:  1px solid  #b5d2b5;
+
+}
+.region-body  .table_3{
+    width: 300px;
+    border:  1px solid  #b5d2b5;
+
+}
+.region-body  .table_1{
+    width: 25%;
+    border:  1px solid  #b5d2b5;
+
+}
+.region-body .table_2{
+    width: 25%;
+    border:  1px solid  #b5d2b5;
+}
+.region-body  .table_2 .update{
+    border: 1px solid  #b5d2b5;
+    background-color: white;
+    width: 20%;
+}
+.region-body  .table_2 .delete{
+    border: 1px solid  red;
+    background-color: red;
+    color: white;
+    width: 20%;
+}
+.region-body  .table_2 button{
+    font-size: 110%;
+    text-align: center;
+}
+.region-body  .table_2 .upordown{
+    border: 1px solid #b5d2b5;
+    background-color: white;
+    color: black;
+    width: 20%;
+}
+.region-body  .table_2 .nbsp{
+    background-color: white;
+    opacity: 0%;
+    width: 20%;
+}

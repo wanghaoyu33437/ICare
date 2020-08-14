@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="{%  static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css"/>
+    <link href="{%  static 'css/bootstrap-theme.min.css'%}" rel="stylesheet" type="text/css"/>
+    <!--jQuery-UI-->
+    <link type="text/css" href="{%static 'jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css'%}" rel="stylesheet" />
+        <style>
+        .td1{
+             width: 35%;
+        }
+        .td2{
+            width: 8%;
+        }
+        .td3{
+            width: 5%;
+        }
+    </style>
+</head>
+<body >
+
+<div class="bs-example" data-example-id="hoverable-table" style="">
+    <table  class="table  table_url table-hover table-responsive  table-condensed table-striped" style="table-layout:fixed;">
+      <thead >
+        <tr >
+            <th style="width: 5%" class="text-center">序号</th>
+            <th class="td2 text-nowrap text-center">时间</th>
+            <th class="td2 text-center">源地址</th>
+            <th class="td2 text-center">目的地址</th>
+            <th class="td1 text-center ">URL</th>
+            <th class="td2 text-center">类型</th>
+            <th class="td3 text-center">检测结果</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in curuent_Page  %}
+      <tr data-toggle="modal" data-target="#myModal">
+      <th scope="row" style="width: 5%" class="text-center" id="id"> {{r.index}} </th>
+          <td class="td2 text-nowrap text-center">{{ r.time }} </td>
+          <td class="td2 text-center"> {{ r.srt }}</td>
+          <td class="td2 text-center">{{  r.dst }} </td>
+          <td class="td1  text-center " style="width: 10%;word-wrap:break-word;word-break:break-all;"> {{r.url}} </td>
+          <td class=" text-center " style="word-wrap:break-word;word-break:break-all;">{{  r.status}} </td>
+          <td class="td3 text-center" >{{ r.pre }} </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

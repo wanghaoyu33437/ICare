@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/region.css' %}" >
+</head>
+<body >
+<div class="region-body">
+
+
+
+<table class="table">
+            <tr>
+                <td class="table_1"><b>时间</b></td>
+                <td class="table_1" ><b>域名</b></td>
+                <td class="table_2" ><b>检测结果</b></td>
+            </tr>
+            {% for r in response reversed%}
+                <tr>
+                <td class="table_1">{{ r.1 }}</td>
+                <td class="table_1" >{{ r.2 }}</td>
+                <td class="table_2" >{{ r.3 }}</td>
+                </tr>
+            {% endfor %}
+
+</table>
+</div>
+</body>
+</html>
